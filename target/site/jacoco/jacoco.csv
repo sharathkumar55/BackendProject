@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+restdemo,com.example.assignment,Restdemo1Application,5,3,0,0,2,1,1,1,1,1
+restdemo,com.example.assignment.rest,BlinkListRestExceptionHandler,42,3,0,0,10,1,2,1,2,1
+restdemo,com.example.assignment.rest,BlinkListErrorResponse,36,0,0,0,6,0,8,0,8,0
+restdemo,com.example.assignment.rest,BlinkListRestController,60,6,4,0,15,3,7,1,5,1
+restdemo,com.example.assignment.rest,BlinkListNotFoundException,13,0,0,0,6,0,3,0,3,0
+restdemo,com.example.assignment.service,BlinkListServiceImpl,40,27,0,0,3,9,5,4,5,4
+restdemo,com.example.assignment.converter,BlinkListConverter,43,46,0,0,9,10,3,4,3,4
+restdemo,com.example.assignment.dao,BlinkListDAOImpl,44,6,0,0,11,3,4,1,4,1
+restdemo,com.example.assignment.entity,BlinkList,24,42,0,0,1,8,6,8,6,8
+restdemo,com.example.assignment.dto,BlinkListDTO,39,27,0,0,7,2,7,7,7,7

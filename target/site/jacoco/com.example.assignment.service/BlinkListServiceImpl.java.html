@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BlinkListServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">restdemo</a> &gt; <a href="index.source.html" class="el_package">com.example.assignment.service</a> &gt; <span class="el_source">BlinkListServiceImpl.java</span></div><h1>BlinkListServiceImpl.java</h1><pre class="source lang-java linenums">package com.example.assignment.service;
+
+import com.example.assignment.converter.BlinkListConverter;
+import com.example.assignment.dto.BlinkListDTO;
+import com.example.assignment.entity.BlinkList;
+import com.example.assignment.repository.BlinkListRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+public class BlinkListServiceImpl implements BlinkListService {
+
+
+    private BlinkListRepository blinkListRepository;
+
+    @Autowired
+    private BlinkListConverter blinkListConverter;
+
+    @Autowired
+<span class="fc" id="L25">    public BlinkListServiceImpl(BlinkListRepository theBlinkListRepository){</span>
+<span class="fc" id="L26">        blinkListRepository = theBlinkListRepository;</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    @Transactional
+    public List&lt;BlinkListDTO&gt; findAll() {
+<span class="fc" id="L32">        List&lt;BlinkList&gt; blinkLists = blinkListRepository.findAll();</span>
+<span class="fc" id="L33">        return  blinkListConverter.entityToDto(blinkLists);</span>
+    }
+
+
+    @Override
+    @Transactional
+    public Optional&lt;BlinkList&gt; findById(int theId) {
+
+<span class="nc" id="L41">        return blinkListRepository.findById(theId);</span>
+    }
+
+    @Override
+    @Transactional
+    public void save(BlinkList theBlinkList) {
+<span class="fc" id="L47">            blinkListRepository.save(theBlinkList);</span>
+<span class="fc" id="L48">    }</span>
+
+    @Override
+    @Transactional
+    public void deleteById(int theId) {
+<span class="fc" id="L53">        blinkListRepository.deleteById(theId);</span>
+<span class="fc" id="L54">    }</span>
+
+    @Override
+    public List&lt;BlinkList&gt; findByQuery(String author, String category, String status) {
+<span class="nc" id="L58">        List&lt;BlinkList&gt; blinkLists = blinkListRepository.findAll();</span>
+<span class="nc" id="L59">        return blinkLists.stream().filter(value-&gt;value.getAuthor().contains(author)).filter(value-&gt;value.getCategory().contains(category)).filter(value-&gt;value.getStatus().contains(status)).collect(Collectors.toList());</span>
+    }
+        }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

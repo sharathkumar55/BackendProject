@@ -1,0 +1,1 @@
+com.example.assignment.rest.BlinkListRestController#addBlinkList(Lcom/example/assignment/dto/BlinkListDTO;)Lcom/example/assignment/entity/BlinkList;

@@ -1,0 +1,2 @@
+com.example.assignment.converter.BlinkListConverter#entityToDto(Ljava/util/List;)Ljava/util/List;
+java.util.stream.Collectors#toList()Ljava/util/stream/Collector;

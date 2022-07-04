@@ -1,0 +1,2 @@
+com.example.assignment.service.BlinkListServiceImpl#findByQuery(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+java.util.stream.Collectors#toList()Ljava/util/stream/Collector;

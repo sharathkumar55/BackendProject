@@ -1,0 +1,3 @@
+com.example.assignment.converter.BlinkListConverter#entityToDto(Lcom/example/assignment/entity/BlinkList;)Lcom/example/assignment/dto/BlinkListDTO;
+com.example.assignment.dto.BlinkListDTO#instance-init#
+com.example.assignment.dto.BlinkListDTO#<init>()V

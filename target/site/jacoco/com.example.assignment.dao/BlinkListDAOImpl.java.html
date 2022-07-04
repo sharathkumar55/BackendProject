@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BlinkListDAOImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">restdemo</a> &gt; <a href="index.source.html" class="el_package">com.example.assignment.dao</a> &gt; <span class="el_source">BlinkListDAOImpl.java</span></div><h1>BlinkListDAOImpl.java</h1><pre class="source lang-java linenums">package com.example.assignment.dao;
+
+import com.example.assignment.entity.BlinkList;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import java.util.List;
+
+@Repository
+public class BlinkListDAOImpl implements BlinkListDAO {
+
+    private EntityManager entityManager;
+
+    // set up constructor injection
+    @Autowired
+<span class="fc" id="L19">    public BlinkListDAOImpl(EntityManager theEntityManager) {</span>
+<span class="fc" id="L20">        entityManager = theEntityManager;</span>
+<span class="fc" id="L21">    }</span>
+
+
+    @Override
+    public List&lt;BlinkList&gt; findAll() {
+
+        // get the current hibernate session
+<span class="nc" id="L28">        Session currentSession = entityManager.unwrap(Session.class);</span>
+
+        // create a query
+<span class="nc" id="L31">        Query&lt;BlinkList&gt; theQuery =</span>
+<span class="nc" id="L32">                currentSession.createQuery(&quot;from BlinkList&quot;, BlinkList.class);</span>
+
+        // execute query and get result list
+<span class="nc" id="L35">        return theQuery.getResultList();</span>
+
+        // return the results
+    }
+
+
+    @Override
+    public BlinkList findById(int theId) {
+
+        // get the current hibernate session
+<span class="nc" id="L45">        Session currentSession = entityManager.unwrap(Session.class);</span>
+
+        // get the employee
+
+<span class="nc" id="L49">        return currentSession.get(BlinkList.class, theId);</span>
+
+        // return the employee
+
+    }
+
+
+    @Override
+    public void save(BlinkList theBlinkList) {
+
+        // get the current hibernate session
+<span class="nc" id="L60">        Session currentSession = entityManager.unwrap(Session.class);</span>
+
+        // save employee
+<span class="nc" id="L63">        currentSession.saveOrUpdate(theBlinkList);</span>
+<span class="nc" id="L64">    }</span>
+
+
+    @Override
+    public void deleteById(int theId) {
+
+        // get the current hibernate session
+<span class="nc" id="L71">        Session currentSession = entityManager.unwrap(Session.class);</span>
+
+        // delete object with primary key
+//        Query theQuery =
+//                currentSession.createQuery(
+//                        &quot;delete from BlinkList where id=:blinkListId&quot;);
+//        theQuery.setParameter(&quot;blinkListId&quot;, theId);
+
+        //theQuery.executeUpdate();
+<span class="nc" id="L80">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
